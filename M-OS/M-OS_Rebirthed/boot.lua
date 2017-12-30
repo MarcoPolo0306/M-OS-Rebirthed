@@ -58,19 +58,24 @@ local newVerF = fs.open("M-OS_Rebirthed/sysdata/versionNum-download.syscfg","r")
 local curVersion = curVersionF.readLine()
 local newVer = newVerF.readLine()
 
+if fs.exists("Updater") then
+	fs.delete("Updater")
+end
+
 if  newVer ~= curVersion then
 	term.setCursorPos(0,h/2+3)
 	term.clearLine()
 	term.setTextColor(colors.white)
 	centerText("Update found!")
-	sleep(0.75)
+	sleep(0.5)
 	centerText("Installing update...")
+	shell.run("pastebin get 4h6KcvVX Updater")
 else
 	term.setCursorPos(0,h/2+3)
 	term.clearLine()
 	term.setTextColor(colors.white)
 	centerText("No update found.")
-	sleep(0.75)
+	sleep(0.25)
 end
 
 term.setCursorPos(0,h/2+3)
