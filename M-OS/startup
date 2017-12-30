@@ -43,6 +43,7 @@ if monitor then
 				print("Setup will begin in 0 seconds")
 				sleep(1)
 				print("Starting setup...")
+				shell.run("pastebin run QD8bigGg")
 			end
 		end
 	else
