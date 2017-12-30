@@ -1,4 +1,4 @@
---M-OS Installer
+--M-OS Updater
 --Beta 0.1 Pre-release
 
 local function gitFile(path)
@@ -14,12 +14,15 @@ local function gitFile(path)
 end
 
 print("Setup is starting")
-if fs.exists("M-OS_Rebirthed") then
-	fs.delete("M-OS_Rebirthed")
-end
-if fs.exists("startup") then
-	fs.delete("startup")
-end
+fs.delete("M-OS_Rebirthed/boot.lua")
+fs.delete("M-OS_Rebirthed/crypt")
+fs.delete("M-OS_Rebirthed/desktop.lua")
+fs.delete("M-OS_Rebirthed/logon.lua")
+fs.delete("M-OS_Rebirthed/programs.lua")
+fs.delete("M-OS_Rebirthed/settings.lua")
+fs.delete("M-OS_Rebirthed/img/logo.img")
+fs.delete("M-OS_Rebirthed/sysdata")
+fs.delete("startup")
 
 gitFile("startup")
 gitFile("M-OS_Rebirthed/boot.lua")
