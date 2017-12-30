@@ -1,0 +1,97 @@
+print("Starting M-OS...")
+local monitor = peripheral.find("monitor")
+
+local function doChecks()
+	
+end
+
+if monitor then
+	if monitor.isColor() then
+		local mX,mY = monitor.getSize()
+		if mX < 35 or mY < 15 then
+			print("M-OS failed to boot: Monitor size is too small..")
+			print("The cause was likely that your monitor is to small. You need to have a minimum of 5 across, and 3 down. (35x15 pixels.)")
+		else
+			if fs.exists("M-OS_Rebirthed/boot.lua") and fs.exists("M-OS_Rebirthed/desktop.lua") and fs.exists("M-OS_Rebirthed/logon.lua") and fs.exists("M-OS_Rebirthed/settings.lua") and fs.exists("M-OS_Rebirthed/programs.lua") and fs.exists("M-OS_Rebirthed/img/logo.img") and fs.exists("M-OS_Rebirthed/config/pass.txt") and fs.exists("M-OS_Rebirthed/sysdata/releaseDate.syscfg") and fs.exists("M-OS_Rebirthed/sysdata/version.syscfg") and fs.exists("M-OS_Rebirthed/sysdata/versionNumber.syscfg") then
+				shell.run("monitor","right","M-OS_Rebirthed/boot.lua")
+				shell.run("monitor","left","M-OS_Rebirthed/boot.lua")
+			else
+				print("M-OS failed to boot: Necessary file is missing.")
+				print("The cause was likely that the file was deleted, moved or renamed.")
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 5 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 4 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 3 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 2 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 1 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 0 seconds")
+				sleep(1)
+				print("Starting setup...")
+			end
+		end
+	else
+		print("M-OS failed to boot: Computer does not support color.")
+		print("The cause was that your computer is not an advanced computer, and M-OS requires a Advanced Computer to run. Please run M-OS on an advanced computer, and then try again.")
+		print("Another cause could be is if your ComputerCraft version is before ComputerCraft 1.45. Please update and use an advanced computer, then try again.")
+	end
+else
+	if term.isColor() then
+		local x, y = term.getSize()
+		if x < 35 or y < 15 then
+			print("M-OS failed to boot: Screen size is to small.")
+			print("The cause was likely that you are using a pocket computer. M-OS only works on Advanced Computers with a resolution of 35x15.")
+		else
+			if fs.exists("M-OS_Rebirthed/boot.lua") and fs.exists("M-OS_Rebirthed/desktop.lua") and fs.exists("M-OS_Rebirthed/logon.lua") and fs.exists("M-OS_Rebirthed/settings.lua") and fs.exists("M-OS_Rebirthed/programs.lua") and fs.exists("M-OS_Rebirthed/img/logo.img") and fs.exists("M-OS_Rebirthed/config/pass.txt") and fs.exists("M-OS_Rebirthed/sysdata/releaseDate.syscfg") and fs.exists("M-OS_Rebirthed/sysdata/version.syscfg") and fs.exists("M-OS_Rebirthed/sysdata/versionNumber.syscfg") then
+				shell.run("M-OS_Rebirthed/boot.lua")
+			else
+				print("M-OS failed to boot: Necessary file is missing.")
+				print("The cause was likely that the file was deleted, moved or renamed.")
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 5 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 4 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 3 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 2 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 1 seconds")
+				sleep(1)
+				term.setCursorPos(1,6)
+				term.clearLine()
+				print("Setup will begin in 0 seconds")
+				sleep(1)
+				print("Starting setup...")
+			end
+		end
+	else
+		print("M-OS failed to boot: Computer does not support color.")
+		print("The cause was that your computer is not an advanced computer, and M-OS requires a Advanced Computer to run. Please run M-OS on an advanced computer, and then try again.")
+		print("Another cause could be is if your ComputerCraft version is before ComputerCraft 1.45. Please update and use an advanced computer, then try again.")
+	end
+end
