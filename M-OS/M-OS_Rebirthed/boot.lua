@@ -69,6 +69,8 @@ if  newVer ~= curVersion then
 	centerText("Update found!")
 	sleep(0.5)
 	centerText("Installing update...")
+	newVerF.close()
+	curVersionF.close()
 	shell.run("pastebin run 4h6KcvVX")
 else
 	term.setCursorPos(0,h/2+3)
