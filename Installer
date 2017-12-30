@@ -1,0 +1,41 @@
+--M-OS Installer
+--Beta 0.1 Pre-release
+
+local function gitFile(path)
+	print("Downloading: "..path)
+	local download = http.get("https://raw.githubusercontent.com/MarcoPolo0306/M-OS-Rebirthed/master/M-OS/"..path)
+	local data = download.readAll()
+	download.close()
+
+	local file = fs.open(path,"w")
+	file.write(data)
+	file.close()
+	print(path.." finished downloading.")
+end
+
+print("Setup is starting")
+if fs.exists("M-OS_Rebirthed") then
+	fs.delete("M-OS_Rebirthed")
+end
+if fs.exists("startup") then
+	fs.delete("startup")
+end
+
+gitFile("startup")
+gitFile("M-OS_Rebirthed/boot.lua")
+gitFile("M-OS_Rebirthed/crypt")
+gitFile("M-OS_Rebirthed/desktop.lua")
+gitFile("M-OS_Rebirthed/logon.lua")
+gitFile("M-OS_Rebirthed/programs.lua")
+gitFile("M-OS_Rebirthed/settings.lua")
+gitFile("M-OS_Rebirthed/config/desktop-background-color.config")
+gitFile("M-OS_Rebirthed/config/pass.txt")
+gitFile("M-OS_Rebirthed/img/logo.img")
+gitFile("M-OS_Rebirthed/programs/FileBrowser")
+gitFile("M-OS_Rebirthed/sysdata/releasedate.syscfg")
+gitFile("M-OS_Rebirthed/sysdata/version.syscfg")
+gitFile("M-OS_Rebirthed/sysdata/versionNumber.syscfg")
+print("Install complete")
+print("Your computer will now reboot.")
+sleep(1)
+os.reboot()
