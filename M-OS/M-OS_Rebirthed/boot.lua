@@ -70,6 +70,7 @@ if  newVer ~= curVersion then
 	sleep(0.5)
 	centerText("Installing update...")
 	shell.run("pastebin get 4h6KcvVX Updater")
+	shell.run("Updater")
 else
 	term.setCursorPos(0,h/2+3)
 	term.clearLine()
